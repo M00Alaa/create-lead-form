@@ -1,0 +1,18 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About Us",
+    "solutions": "Solutions",
+    "references": "References",
+    "customers": "Customers",
+    "partners": "Partners",
+    "contact": "Contact Us"
+  },
+  "footer": {
+    "about": "About",
+    "description": " Business Engines was founded in 2021 to operate in Egypt to build value added solutions o the region market, our main business sector is fintech, integrating technology into the products of financial services firm to improve their use and delivery to consumers.",
+    "follow": "Follow Us",
+    "links": "Quick Links",
+    "copyright": "Copyright © 2020. All Rights Reserved."
+  }
+}

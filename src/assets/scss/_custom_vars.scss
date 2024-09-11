@@ -1,0 +1,205 @@
+$primary: #3e97ff;
+$secondary: #2e2e2e;
+$success: #30d158;
+$info: #3e97ff;
+$warning: #ed5224;
+$danger: #e7191a;
+$light: #f4f4f4;
+$dark: #40444c;
+$cyan: #4cf4ff;
+$gray-50: #fafafa;
+$gray-80: #f3f3f3;
+$gray-100: #f9fafb;
+$gray-200: #f1f2f4;
+$gray-300: #a5a7ab;
+$gray-400: #fcfcfc;
+$gray-500: #9ca3af;
+$gray-600: #83899f;
+$gray-700: #464e5f;
+$gray-800: #162542;
+$body-color: #202020;
+$body: #686565;
+$black: #000;
+$white: #fff;
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "cyan": $cyan,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "white": $white,
+  "dark": $dark,
+  "black": $black,
+  "body": $body,
+  "gray": $gray-300,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+);
+@import url("https://fonts.cdnfonts.com/css/neo-sans-arabic");
+
+$font-family-sans-serif: "inter", sans-serif;
+$font-family-monospace: "outfit", sans-serif;
+
+.ff-galada {
+  font-family: "galada", cursive;
+}
+
+.text-gray-300 {
+  color: $gray-300 !important;
+}
+.bg-gray-400 {
+  background-color: $gray-400 !important;
+}
+.text-gray-500 {
+  color: $gray-500 !important;
+}
+.text-gray-600 {
+  color: $gray-600 !important;
+}
+.text-gray-700 {
+  color: $gray-700 !important;
+}
+
+$text-muted: $gray-600;
+
+$font-size-base: 1rem;
+
+$h1-font-size: 44px;
+$h2-font-size: 36px;
+$h3-font-size: 28px;
+$h4-font-size: 24px;
+$h5-font-size: 20px;
+$h6-font-size: 16px;
+
+// scss-docs-start font-sizes
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+  14px: 14px,
+  12px: 12px,
+);
+// scss-docs-end font-sizes
+
+$headings-font-family: "Neo Sans Arabic", sans-serif;
+$headings-color: $body-color;
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  10px: 10px,
+  12px: 12px,
+  15px: 15px,
+  16px: 16px,
+  20px: 20px,
+  30px: 30px,
+  40px: 40px,
+  50px: 50px,
+  60px: 60px,
+  70px: 70px,
+  80px: 80px,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+
+$enable-caret: false;
+$link-color: $body-color;
+$dropdown-link-hover-color: $primary;
+$dropdown-link-hover-bg: rgba($primary, 0.2);
+$dropdown-border-radius: 4px;
+
+$border-radius: 0.24rem;
+$border-radius-lg: 0.4rem;
+$border-radius-sm: 0.2rem;
+$btn-border-radius-lg: $border-radius;
+$utilities: (
+  "max-width": (
+    responsive: true,
+    property: max-width,
+    class: mw,
+    values: (
+      100: 100%,
+    ),
+  ),
+  "max-height": (
+    responsive: true,
+    property: max-height,
+    class: mh,
+    values: (
+      100: 100%,
+    ),
+  ),
+  "min-height": (
+    responsive: true,
+    property: min-height,
+    class: mh,
+    values: (
+      100vh: 100vh,
+    ),
+  ),
+  "height": (
+    responsive: true,
+    property: height,
+    class: h,
+    values: (
+      100: 100%,
+      75: 75%,
+    ),
+  ),
+  "width": (
+    responsive: true,
+    property: width,
+    class: w,
+    values: (
+      100: 100%,
+      75: 75%,
+      50: 50%,
+      25: 25%,
+      fit-content: fit-content,
+    ),
+  ),
+  "z-index": (
+    responsive: true,
+    property: z-index,
+    class: z-index,
+    values: (
+      1: 1,
+      -1: -1,
+      2: 2,
+    ),
+  ),
+  "start": (
+    responsive: true,
+    property: left,
+    class: start,
+    values: (
+      10px: 10px,
+    ),
+  ),
+  "end": (
+    responsive: true,
+    property: right,
+    class: end,
+    values: (
+      10px: 10px,
+    ),
+  ),
+  "top": (
+    responsive: true,
+    property: top,
+    class: top,
+    values: (
+      10px: 10px,
+    ),
+  ),
+);
