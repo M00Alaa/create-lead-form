@@ -1,4 +1,3 @@
-import { init } from 'aos';
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -8,15 +7,9 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'dream-house';
+  title = 'create-lead-form';
 
   constructor(private translate: TranslateService) {
-    // Set the default language
-    translate.setDefaultLang('en');
-  }
-
-  switchLanguage(language: string) {
-    this.translate.use(language);
-    init();
+    this.translate.setDefaultLang('en');
   }
 }
