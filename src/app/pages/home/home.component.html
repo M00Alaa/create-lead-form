@@ -1,1 +1,286 @@
-<p>sfaafssafafasf</p>
+<section class="container-fluid">
+    <div class="row justify-content-between">
+
+
+
+        <div class="col-md-4">
+            <div class="card rounded-3">
+                <div class="card-body">
+                    <div class="bg-light rounded-3 p-3">
+                        <h5>
+                            <i class='bx bxs-bar-chart-alt-2 ms-2 align-middle' style='color:#f8b602'></i>
+                            <span>بناء نموذج الأحتمالية</span>
+                        </h5>
+                    </div>
+
+                    <p *ngIf="current == 0" class="fs-14px fw-bold text-primary mt-3">
+                        <span class="badge bg-primary text-white rounded-circle">1</span>
+                        إختيار البيانات
+                    </p>
+                    <p *ngIf="current == 1" class="fs-14px fw-bold text-primary mt-3">
+                        <span class="badge bg-primary text-white rounded-circle">2</span>
+                        إضافة الرأس و الشعار
+                    </p>
+
+                    <p class="fs-14px ps-md-5 text-muted mt-3">
+                        إبدا بإختيار البيانات التى تريد ان تضيفها إلى النموذج ان تضيفها إلى النموذج ان تضيفها إلى
+                        النموذج
+                    </p>
+
+                    <nz-divider class="fs-14px text-muted mt-4" [nzText]="text">
+                        <ng-template #text>
+                            <img src="assets/imgs/icons/muted-eye.svg" class="ms-2" style="width: 18px;" alt="">
+                            <span>
+                                الحقول الظاهرة
+                            </span>
+                        </ng-template>
+                    </nz-divider>
+
+
+                    <div class="overflow-y-auto" style="max-height: 333px;">
+                        <div *ngFor="let input of current == 0 ? inputsActiveArray : secStepArray" class="d-flex mt-3">
+                            <div class="col-10">
+                                <div class="card card-hov rounded-3 border">
+                                    <div class="card-body d-flex justify-content-between flex-row p-2">
+                                        <p class="text-muted fs-14px m-0" style="width: fit-content;">
+                                            <i class='{{input.icon}} align-middle ms-1 fs-6'></i>
+                                            <span>{{input.inputName}}</span>
+                                        </p>
+
+                                        <i *ngIf="input.id != 3"
+                                            class='icon bx bxs-edit text-primary align-middle fs-4 pointer'
+                                            style="width: fit-content;"></i>
+
+                                        <span *ngIf="input.id == 3 && current == 0" (click)="open(content)"
+                                            class='ms-3 border px-2 pointer rounded-2 text-primary'
+                                            style="width: fit-content;">
+                                            تحديد المنتجات
+                                            <span
+                                                class="badge bg-primary text-white rounded-circle">{{selectedValues.length}}</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-2">
+                                <div>
+                                    <div (click)="removeInput(input.id)" class="icon-box text-center px-3 py-2 me-auto"
+                                        style="width: fit-content;">
+                                        <img src="assets/imgs/icons/primary-eye.svg" style="width: 18px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <nz-divider class="fs-14px text-muted mt-4" [nzText]="text2">
+                        <ng-template #text2>
+                            <img src="assets/imgs/icons/non-eye.svg" class="ms-2" style="width: 18px;" alt="">
+                            <span>
+                                الحقول المخفية
+                            </span>
+                        </ng-template>
+                    </nz-divider>
+
+                    <div class="overflow-y-auto" style="max-height: 333px;">
+                        <div *ngFor="let input of current == 0 ? inputsInactiveArray : secInStepArray"
+                            class="d-flex mt-3">
+                            <div class="col-10">
+                                <div class="card card-hov rounded-3 border">
+                                    <div class="card-body d-flex justify-content-between flex-row p-2">
+                                        <p class="text-muted fs-14px m-0" style="width: fit-content;">
+                                            <i class='{{input.icon}} align-middle ms-1 fs-6'></i>
+                                            <span>{{input.inputName}}</span>
+                                        </p>
+
+                                        <i *ngIf="input.id != 3"
+                                            class='icon bx bxs-edit text-primary align-middle fs-4 pointer'
+                                            style="width: fit-content;"></i>
+
+                                        <span *ngIf="input.id == 3 && current == 0" (click)="open(content)"
+                                            class='ms-3 border px-2 pointer rounded-2 text-primary'
+                                            style="width: fit-content;">
+                                            تحديد المنتجات
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-2">
+                                <div>
+                                    <div (click)="addInput(input.id)" class="icon-box text-center px-3 py-2 me-auto"
+                                        style="width: fit-content;">
+                                        <img src="assets/imgs/icons/non-eye.svg" style="width: 18px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="text-start mt-4">
+                        <button *ngIf="current > 0" class="btn btn-outline-primary ms-3" (click)="prevStep()">
+                            <i class="bx bx-chevron-right fs-4"></i>
+                        </button>
+                        <button class="btn btn-primary px-5" (click)="nextStep()">الخطوة التالية</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-md-8">
+            <div class="card rounded-3 overflow-hidden">
+                <div class="card-body">
+                    <nz-steps [nzDirection]="isMobile ? 'vertical' : 'horizontal'" [nzCurrent]="current">
+                        <nz-step nzTitle="إختيار البيانات"></nz-step>
+                        <nz-step nzTitle="إضافة الرأس و الشعار"></nz-step>
+                        <nz-step nzTitle="تخصيص الألوان و المظهر"></nz-step>
+                        <nz-step nzTitle="العرض النهائى"></nz-step>
+                    </nz-steps>
+                </div>
+            </div>
+
+
+            <div class="col-md-8 mx-auto">
+                <div class="card rounded-3 mt-3 " style="border: 1px solid #3E97FF33;">
+                    <div class="card-body">
+                        <div class="card" style="box-shadow: 0 1px 12px rgba(33, 33, 33, 0.09);"
+                            *ngFor="let input of secStepArray">
+                            <div *ngIf="current == 1" class="card-body px-5">
+                                <nz-form-item *ngIf="input.id != 3">
+                                    <nz-form-control>
+                                        <nz-form-label [nzFor]="input.inputName">
+                                            <i class="{{input.icon}} ms-1 fs-5"></i>
+                                            {{input.inputName}}
+                                        </nz-form-label>
+                                        <input nz-input class="rounded-3 p-2" [name]="input.inputName"
+                                            placeholder="يمكنك كتابة {{input.inputName}} هنا" type="text"
+                                            [id]="input.inputName" />
+                                    </nz-form-control>
+                                </nz-form-item>
+
+                                <nz-form-item *ngIf="input.id == 3">
+                                    <nz-form-control>
+                                        <nz-form-label [nzFor]="input.inputName">
+                                            <i class="{{input.icon}} ms-1 fs-5"></i>
+                                            {{input.inputName}}
+                                        </nz-form-label>
+                                        <nz-select nzPlaceHolder="يمكنك اختيار {{input.inputName}} من هنا"
+                                            [(ngModel)]="select" nzAllowClear>
+                                            <nz-option *ngFor="let item of selectedValues" [nzValue]="item.id"
+                                                [nzLabel]="item.name"></nz-option>
+                                        </nz-select>
+                                    </nz-form-control>
+                                </nz-form-item>
+                            </div>
+                        </div>
+
+                        <div class="card" style="box-shadow: 0 1px 12px rgba(33, 33, 33, 0.09);"
+                            *ngFor="let input of inputsActiveArray">
+                            <div class="card-body px-5">
+                                <nz-form-item *ngIf="input.id != 3">
+                                    <nz-form-control>
+                                        <nz-form-label [nzFor]="input.inputName">
+                                            <i class="{{input.icon}} ms-1 fs-5"></i>
+                                            {{input.inputName}}
+                                        </nz-form-label>
+                                        <input nz-input class="rounded-3 p-2" [name]="input.inputName"
+                                            placeholder="يمكنك كتابة {{input.inputName}} هنا" type="text"
+                                            [id]="input.inputName" />
+                                    </nz-form-control>
+                                </nz-form-item>
+
+                                <nz-form-item *ngIf="input.id == 3">
+                                    <nz-form-control>
+                                        <nz-form-label [nzFor]="input.inputName">
+                                            <i class="{{input.icon}} ms-1 fs-5"></i>
+                                            {{input.inputName}}
+                                        </nz-form-label>
+                                        <nz-select nzPlaceHolder="يمكنك اختيار {{input.inputName}} من هنا"
+                                            [(ngModel)]="select" nzAllowClear>
+                                            <nz-option *ngFor="let item of selectedValues" [nzValue]="item.id"
+                                                [nzLabel]="item.name"></nz-option>
+                                        </nz-select>
+                                    </nz-form-control>
+                                </nz-form-item>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <div class="d-flex col-12">
+            <div class="col-6">
+                <div class="d-flex gap-2">
+                    <div class="d-flex align-items-center justify-content-center rounded-circle align-middle"
+                        style="background: rgba(251, 188, 4, 0.102); width: 33px; height: 33px;">
+                        <i class='bx bx-cube' style="color: #FBBC04;"></i>
+                    </div>
+                    <p class="mb-0">المنتجات</p>
+                </div>
+            </div>
+            <div class="col-6 text-start">
+                <div>
+                    <button class="bg-light border px-3 py-2 rounded-3" (click)="modal.dismiss('Cross click')">
+                        <i class="bx bx-x fs-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div>
+            <div *ngFor="let product of products" class="mt-2">
+                <label class="card custom-card shadow-sm pointer rounded-3 border position-relative"
+                    [ngClass]="{ 'custom-background custom-border': selectedValues.includes(product) }"
+                    (click)="selectCard(product)">
+                    <input type="checkbox" name="option" class="position-absolute top-50 translate-middle-y start-10px"
+                        [checked]="selectedValues.includes(product)" />
+                    <div class="card-body fw-normal">
+                        <div class="d-flex align-items-center gap-3">
+                            <div>
+                                <img src="../../../assets/imgs/Rectangle 555.png" class="rounded-3" style="width: 66px;"
+                                    alt="">
+                            </div>
+
+                            <div>
+                                <p class="mb-0">
+                                    لابتوب ديل 128 جيجا
+                                    <small class="badge bg-success-subtle me-2 text-success fs-12px">متوفر</small>
+                                </p>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="border-1 pe-2 border-primary border-end">
+                                        <p class="fs-14px text-muted mb-0">السعر</p>
+                                        <p class="fs-14px text-gray-700 mb-0">1,000,000</p>
+                                    </div>
+                                    <div class="border-1 pe-2 border-primary border-end">
+                                        <p class="fs-14px text-muted mb-0">السعر</p>
+                                        <p class="fs-14px text-gray-700 mb-0">1,000,000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary px-5" (click)="submitSelection(); modal.close('Save click')">
+            حفظ الأختيارات
+        </button>
+    </div>
+</ng-template>

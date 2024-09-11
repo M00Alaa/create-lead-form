@@ -17,23 +17,26 @@ body {
   font-family: "Neo Sans Arabic", sans-serif;
 }
 
-.card-container .card {
-  box-shadow: 4px 5px 12px rgba(33, 33, 33, 0.03);
-
-  transition: all 0.3s;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-
+.icon-box {
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
   &:hover {
-    box-shadow: 0 1px 12px rgba(33, 33, 33, 0.09);
-    transform: scale(1.01);
-    -webkit-transform: scale();
-    -moz-transform: scale();
-    -ms-transform: scale();
-    -o-transform: scale();
+    background: #a4ceffa1;
   }
+}
+
+.ant-steps-horizontal:not(.ant-steps-label-vertical) .ant-steps-item {
+  padding-left: 0px !important;
+  white-space: nowrap;
 }
 
 .ck-reset_all :not(.ck-reset_all-excluded *),

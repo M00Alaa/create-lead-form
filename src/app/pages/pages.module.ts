@@ -13,6 +13,9 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzStepsModule } from 'ng-zorro-antd/steps';
 import { HttpClient } from '@angular/common/http';
 
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+
 // Import the factory function
 import { HttpLoaderFactory } from '../core/translate-http-loader';
 
@@ -31,6 +34,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     NgbCarouselModule,
     FormsModule,
+    NzSelectModule,
+    NzFormModule,
     // TranslateModule,
     NzDividerModule,
     NzInputModule,

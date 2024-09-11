@@ -1,0 +1,29 @@
+.card-hov {
+  .icon {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+}
+
+.card-hov:hover {
+  .icon {
+    opacity: 1;
+  }
+}
+
+.card-container .hover-bg:hover {
+  background-color: #f0f8ff; /* Change to the desired hover color */
+}
+
+.custom-border {
+  border: 1px solid #f1f7ff;
+}
+.custom-background {
+  background: #f1f7ff;
+}
+
+.custom-card {
+  &:hover {
+    background: #f1f7ff;
+  }
+}
